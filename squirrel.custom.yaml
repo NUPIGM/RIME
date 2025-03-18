@@ -1,0 +1,90 @@
+---
+#-----------------#
+#    颜色使用说明   #
+#-----------------#
+# 我们平常一般用到的颜色都是 `RGB` 顺序的，如 `D1635D` 就是 `red: D1 | green: 63 | blue: 5D`
+# 而这里面用到的颜色可以有两种表达方式：
+# 一种是带透明度的 `ABGR` ，`A` 代码透明度，范围也是从 `00 - FF`，`00` 是透明 `FF` 是不透明；另一种是 `BGR`。
+# 那么上面这个颜色在这里面就可以写成 `0x5D63D1` `0xFF5D63D1`
+
+#-----------------#
+#     字体说明     #
+#-----------------#
+# 只要是你本地有的字体就可以，可以打开 FontBook.app 查看
+# 一般字体不需要指定，指定后的字体可能会出现候选框被拉伸成过高的情况，因为不同字体的纵向高度不同，默认字体适配最好
+
+patch:
+  style:
+    # 选择皮肤，亮色与暗色主题
+    color_scheme: wechat
+    color_scheme_dark: wechat_dark
+
+    text_orientation: horizontal # horizontal | vertical  文字方向
+    candidate_list_layout: stacked #linear-候选词水平排列/stacked-垂直排列（ 1.0.0 之后生效）
+    memorize_size: true
+    inline_preedit: true
+    corner_radius: 10
+    hilited_corner_radius: 10
+    border_height: 0
+    border_width: 0
+    line_spacing: 5
+    spacing: 10
+    font_face: "Cascadia Code NF"
+    font_point: 14
+    label_font_face: "Cascadia Code NF"
+    label_font_point: 12
+    comment_font_face: "Cascadia Code NF"
+    comment_font_point: 12
+    shadow_size: 8
+    candidate_format: "%c.%@" #设置每个候选词之间的间隔距离，%c 代表备选的数字，%@代表候选字，可以通过输入空格的形式来调整每个候选字之间的间隔距离
+    blur: true #模糊效果
+    translucency: true #毛玻璃效果
+    color_space: display_p3 #色域
+
+  # 皮肤列表
+  preset_color_schemes:
+    wechat:
+      name: "微信键盘 / WeChat-keyboard" # 配色取自微信键盘
+      author: zsakvo
+      back_color: 0xC8F0F0F0
+      comment_text_color: 0x999999
+      hilited_candidate_back_color: 0x75B100
+      hilited_candidate_text_color: 0xFFFFFF
+      hilited_mark_color: 0xBF616A # 标签前的标记
+      horizontal: true
+      text_color: 0x424242
+      border_color: 0xFFFFFF
+      # 选中区域配色
+      hilited_candidate_shadow_color: 0xDDDDDD # 阴影
+      # 候选框配色
+      shadow_color: 0xDDDDDD
+    wechat_dark:
+      name: "微信键盘_深色 / WeChat-keyboard_dark" # 配色取自微信键盘
+      back_color: 0xC85D5D5D #设置输入条的背景色，色值是按照 BGR 的形式 16 进制填写
+      border_color: 0x151515 #输入条边框颜色，似乎在横向模式下不起作用
+      border_color_width: 0 #输入条边框宽度
+      candidate_text_color: 0xFFFFFF #候选字颜色
+      text_color: 0xFFFFFF #普通候选字的颜色，非第一候选字
+      hilited_candidate_label_color: 0x151515 #第一候选字标签颜色，也就是数字 1
+      hilited_text_color: 0x151515 #第一候选字颜色
+      hilited_candidate_back_color: 0x75B100 #第一候选字高亮颜色（背景色）
+      # label_color: 0x888888 #普通标签的颜色(非第一候选字)，也就是候选字数字
+      hilited_candidate_shadow_color: 0xDDDDDD # 阴影
+
+  # --- 特定程序定义初始状态的英文输入 ---
+  show_notifications_via_notification_center: true
+  app_options:
+    com.termius-dmg.mac: # Terminal - Mac
+      ascii_mode: true
+    com.microsoft.VSCode:
+      ascli_punct: true
+#    com.google.Chrome: # Chrome
+#      ascii_mode: true
+#    com.coderforart.MWeb3: # MWeb
+#      ascii_mode: true
+#    com.apple.Safari: # Safari
+#      ascii_mode: true
+#    co.zeit.hyper: # 程序名
+#      ascii_mode: true # 对应的选项
+#    co.zeit.hyper: # 程序名
+#      ascii_mode: true # 对应的选项
